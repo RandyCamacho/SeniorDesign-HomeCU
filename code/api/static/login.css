@@ -1,0 +1,114 @@
+html {
+    height: 100%;
+}
+
+#signup {
+    margin-top: 1em;
+    font-size: 15px;
+    text-align: center;
+}
+
+body {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    height: 100%;
+}
+
+* {
+    font-family: 'Rubik', 'Sans-Serif';
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 100px;
+    z-index: 1;
+    color: white;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    width: calc(100% - 2em);
+    margin-top: 2em;
+    font-size: 14px;
+    padding: 1em;
+    background: white;
+}
+
+input[type=submit] {
+    border: none;
+    color: white;
+    font-weight: bold;
+    background: #21BF73;
+    width: 100%;
+    right: 0;
+}
+
+#green {
+    z-index: -1;
+    transform-origin: top right;
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    background: #21BF73;
+    transform: rotate(15deg);
+}
+
+#rightside {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#leftside {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+}
+
+#homecumonitor {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#login {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#submit {
+    cursor: pointer;
+    display: block;
+    margin: 1em 0em 0em 0em;
+}
+
+#LoginError {
+    color: red;
+    margin-top: 1em;
+}
+
+a {
+    color: #21BF73;
+}

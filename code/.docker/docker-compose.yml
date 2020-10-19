@@ -1,0 +1,36 @@
+version: '3.7'
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  database:
+    image: postgres:10
+    env_file:
+      - .env
+    ports:
+      - 5432:54321
+    networks:
+      backend:
+        aliases:
+          - db
+    volumes:
+      - ./bsu_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./eformsschemamaster.sql:/docker-entrypoint-initdb.d/02-master.sql
+      - ./eformsschemadetail.sql:/docker-entrypoint-initdb.d/03-detail.sql
+      - ./example_cus.sql:/docker-entrypoint-initdb.d/04-example-cus.sql
+  api:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    volumes:
+      - ../api:/var/www/api:rw
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+    networks:
+      backend:
+        aliases:
+          - api

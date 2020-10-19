@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+	<head>
+		<title>HomeCU Monitor</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}" >
+		<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div id="leftside">
+			<div id="green"></div>
+			<div id="homecumonitor">
+				<h1>HomeCU</h1>
+				<h1>monitor</h1>
+			</div>
+		</div>
+		<div id="rightside">
+			<div id="login">
+				<h2>Sign In</h2>
+				<form action="" method="POST">
+					{% csrf_token %}
+					{% if errors|length != 0 %}
+						{% for error in errors%}
+							<h4 id="LoginError">{{error}}</h4>
+						{% endfor %}
+					{% endif %}
+					{{ form }}
+					<input id="submit" type="submit" value="Log In">
+				</form>
+		
+				<div id = "signup">
+				Need an Account? 
+				<a href="{% url 'newUser' %}"> Sign Up </a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
